@@ -1,11 +1,7 @@
 import React from 'react';
 
 function Header() {
-	return (
-		<div>
-			<h1>Task Manager</h1>
-		</div>
-	);
+	return <h1>Task Manager</h1>;
 }
 
 export default Header;

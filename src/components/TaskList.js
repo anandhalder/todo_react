@@ -8,12 +8,17 @@ function TaskList() {
 
 	return (
 		<div className={styles.tasklist}>
-			
-			<ul className={styles.task}>
-				{tasks.map((task) => {
-					return <Task task={task} key={task.id} />;
-				})}
-			</ul>
+			{tasks.length !== 0 ? (
+				<ul className={styles.task}>
+					{tasks.map((task) => {
+						return <Task task={task} key={task.id} />;
+					})}
+				</ul>
+			) : (
+				<div className={styles.empty__list}>
+					<h1>Stop being Lazy !</h1>
+				</div>
+			)}
 		</div>
 	);
 }

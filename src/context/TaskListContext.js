@@ -34,6 +34,7 @@ const TaskListContextProvider = (props) => {
 			task.id === id ? { title, id } : task
 		);
 		setTask(newTasks);
+		setEditItem(null);
 	};
 
 	return (

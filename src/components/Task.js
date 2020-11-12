@@ -8,7 +8,7 @@ function Task({ task }) {
 	return (
 		<li className={styles.listitem}>
 			<span>{task.title}</span>
-			<div>
+			<div className={styles.buttons}>
 				<button onClick={() => findItem(task.id)}>Edit</button>
 				<button onClick={() => removeTask(task.id)}>Delete</button>
 			</div>

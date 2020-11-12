@@ -1,5 +1,28 @@
 .listitem {
+	margin: 10px;
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
 	padding: 0 10px 0 10px;
+	box-sizing: border-box;
+}
+
+.listitem span {
+	white-space: nowrap;
+	width: 50px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	flex: 0.6;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex: 0.4;
+}
+
+.buttons * {
+	width: 50px;
+	padding: 1px;
 }

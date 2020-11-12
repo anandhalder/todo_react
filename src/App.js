@@ -14,6 +14,9 @@ function App() {
 					<TaskForm />
 					<TaskList />
 				</div>
+				<div className={styles.min__size}>
+					<h2>I don't work on Iphone 4!</h2>
+				</div>
 			</div>
 		</TaskListContextProvider>
 	);

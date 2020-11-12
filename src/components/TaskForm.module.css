@@ -3,19 +3,20 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-top: 10px;
 	margin-bottom: 10px;
+	width: 100%;
 }
 
 .task__input {
 	border: none;
 	padding: 10px;
-	border-radius: 10px;
+	box-sizing: border-box;
 }
 
 .task__input:focus {
-	border: none;
+	border-bottom: 2px solid black;
 	outline: none;
-	background-color: #bfbfbf;
 }
 
 .task__buttons {
@@ -26,8 +27,15 @@
 }
 
 .task__buttons * {
+	width: 100px;
+	margin: 0 5px 0 5px;
+	cursor: pointer;
 	padding: 10px;
 	border: none;
 	border-radius: 10px;
 	background-color: #bfbfbf;
+}
+
+.task__buttons *:focus {
+	outline: none;
 }
