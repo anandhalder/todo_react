@@ -2,20 +2,18 @@ import React from 'react';
 // import { TaskListContext } from '../context/TaskListContext';
 import Task from './Task';
 import styles from './TaskList.module.css';
-import { useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 
-function TaskList() {
-	// const { tasks } = useContext(TaskListContext);
-	const { tasks } = useSelector((state) => state.tasks);
-
+function TaskList(props) {
+	console.log(props.tasks);
 	return (
 		<div className={styles.tasklist}>
 			{/* If tasks is empty  */}
-			{tasks ? (
+			{props.tasks ? (
 				<ul className={styles.task}>
-					{tasks.map((task) => {
-						return <Task task={task.title} key={task.id} />;
-					})}
+					{props.tasks.map((task) => (
+						<Task task={task} key={task.id} />
+					))}
 				</ul>
 			) : (
 				<div className={styles.empty__list}>
@@ -26,4 +24,8 @@ function TaskList() {
 	);
 }
 
-export default TaskList;
+const mapStateToProps = (state) => {
+	return { tasks: state.tasks };
+};
+
+export default connect(mapStateToProps)(TaskList);

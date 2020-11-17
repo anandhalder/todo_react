@@ -12,13 +12,10 @@ function TaskForm(props) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		if (props.editItem !== '') {
-			// editTask(title, editItem.id);
+		if (props.editItem.id !== '') {
 			props.editTask(props.editItem, title);
 		} else {
-			// addTask(title);
 			// Calling Function defined in the mapDispatchToProps !
-
 			props.addTask(title);
 		}
 		setTitle('');
@@ -31,12 +28,13 @@ function TaskForm(props) {
 	};
 
 	useEffect(() => {
-		if (props.editItem !== null) {
-			setTitle(title);
+		if (props.editItem.id !== '') {
+			console.log('Edit Task Button Clicked', props.editItem);
+			setTitle(props.editItem.title);
 		} else {
 			setTitle('');
 		}
-	}, [props.editItem]);
+	}, [props.editItem.id]);
 
 	return (
 		<form onSubmit={handleSubmit} className={styles.task__form}>
@@ -46,12 +44,12 @@ function TaskForm(props) {
 				value={title}
 				className={styles.task__input}
 				type='text'
-				placeholder={props.editItem ? 'Edit Task' : 'Add Task'}
+				placeholder='Add Task !'
 				required
 			/>
 			<div className={styles.task__buttons}>
 				<button type='submit'>
-					{props.editItem ? 'Edit Task' : 'Add Task'}
+					{props.editItem.id !== '' ? 'Edit Task' : 'Add Task'}
 				</button>
 				<button type='submit' onClick={handleClear}>
 					Clear

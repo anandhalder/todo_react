@@ -12,7 +12,9 @@ function Task({ task }) {
 		<li className={styles.listitem}>
 			<span>{task.title}</span>
 			<div className={styles.buttons}>
-				<button onClick={() => dispatch(updateEditTask(task.id))}>Edit</button>
+				<button onClick={() => dispatch(updateEditTask(task.id, task.title))}>
+					Edit
+				</button>
 				<button onClick={() => dispatch(deleteTask(task.id))}>Delete</button>
 			</div>
 		</li>

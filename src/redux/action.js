@@ -7,10 +7,10 @@ export const addTask = (title) => {
 	};
 };
 
-export const editTask = (itemId, title) => {
+export const editTask = (item, title) => {
 	return {
 		type: EDIT,
-		payload: { id: itemId, title: title },
+		payload: { id: item.id, title: title },
 	};
 };
 
@@ -27,9 +27,9 @@ export const clearTask = () => {
 	};
 };
 
-export const updateEditTask = (id) => {
+export const updateEditTask = (id, title) => {
 	return {
 		type: UPDATE_EDIT,
-		payload: id,
+		payload: { id, title },
 	};
 };
