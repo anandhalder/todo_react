@@ -1,17 +1,20 @@
-import React, { useContext } from 'react';
-import { TaskListContext } from '../context/TaskListContext';
+import React from 'react';
+// import { TaskListContext } from '../context/TaskListContext';
 import Task from './Task';
 import styles from './TaskList.module.css';
+import { useSelector } from 'react-redux';
 
 function TaskList() {
-	const { tasks } = useContext(TaskListContext);
+	// const { tasks } = useContext(TaskListContext);
+	const { tasks } = useSelector((state) => state.tasks);
 
 	return (
 		<div className={styles.tasklist}>
-			{tasks.length !== 0 ? (
+			{/* If tasks is empty  */}
+			{tasks ? (
 				<ul className={styles.task}>
 					{tasks.map((task) => {
-						return <Task task={task} key={task.id} />;
+						return <Task task={task.title} key={task.id} />;
 					})}
 				</ul>
 			) : (
