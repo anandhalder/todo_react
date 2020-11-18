@@ -9,6 +9,7 @@ function App(props) {
 	return (
 		// <TaskListContextProvider>
 		<div className={styles.container}>
+			<div className={styles.container__overlay}></div>
 			<div className={styles.app__wrapper}>
 				<Header />
 				<TaskForm />

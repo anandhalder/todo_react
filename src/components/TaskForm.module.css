@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .task__form {
 	display: flex;
 	flex-direction: column;
@@ -9,14 +11,15 @@
 }
 
 .task__input {
+	text-align: center;
 	border: none;
+	outline: none;
 	padding: 10px;
 	box-sizing: border-box;
-}
-
-.task__input:focus {
-	border-bottom: 2px solid black;
-	outline: none;
+	background-color: transparent;
+	border-bottom: 2px solid white;
+	font-family: 'Pacifico', cursive;
+	font-size: 1.3rem;
 }
 
 .task__buttons {
@@ -33,7 +36,7 @@
 	padding: 10px;
 	border: none;
 	border-radius: 10px;
-	background-color: #bfbfbf;
+	background-color: white;
 }
 
 .task__buttons *:focus {

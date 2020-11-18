@@ -1,5 +1,6 @@
 import { ADD, EDIT, DELETE, UPDATE_EDIT, CLEAR } from './actionTypes';
 import { v1 as uuid } from 'uuid';
+import update from 'react-addons-update';
 
 // Defining initial state for the Redux Store !
 const initialState = { tasks: [], editItem: { id: '', title: '' } };
@@ -13,16 +14,14 @@ const reducer = (state = initialState, action) => {
 			};
 		}
 		case EDIT: {
-			return {
-				...state,
-				tasks: [
-					state.tasks.map((task) =>
-						task.id === action.payload.id
-							? (task.title = action.payload.title)
-							: task
-					),
-				],
-			};
+			// Using React Immutability helpers !!
+			return update(state, {
+				tasks: {
+					[action.payload.pos]: {
+						title: { $set: action.payload.title },
+					},
+				},
+			});
 		}
 		case DELETE: {
 			return {

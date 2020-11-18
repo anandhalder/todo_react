@@ -5,7 +5,6 @@ import styles from './TaskList.module.css';
 import { connect } from 'react-redux';
 
 function TaskList(props) {
-	console.log(props.tasks);
 	return (
 		<div className={styles.tasklist}>
 			{/* If tasks is empty  */}

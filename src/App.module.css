@@ -1,18 +1,30 @@
 .container {
-	background: #616161;
+	background-image: url('https://images.unsplash.com/photo-1593474686394-2dedcffac7d3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1936&q=80');
+
 	width: 100%;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
+	z-index: -1;
+}
+
+.container__overlay {
+	background-color: rgba(27, 27, 27, 0.5);
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	z-index: 1;
 }
 
 .app__wrapper {
+	z-index: 2;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.8);
+
 	width: 25%;
 	min-width: 450px;
 	height: 600px;
