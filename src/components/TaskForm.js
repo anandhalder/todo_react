@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import styles from './TaskForm.module.css';
 import { connect } from 'react-redux';
-import { addTask, editTask, clearTask } from '../redux';
+import { addTask, editTask, clearTask, updateEditTask } from '../redux';
 
 function TaskForm(props) {
-	// const { addTask, clearList, editItem, editTask } = useContext(
-	// 	TaskListContext
-	// );
 	const [title, setTitle] = useState('');
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		if (props.editItem.id !== '') {
-			// Finding the index position of the target Element to edit !
+			// Traversing through Array to get the position of the Element to Edit !
 			let count = 0;
 			for (let i = 0; i < props.tasks.length; i++) {
-				if (props.editItem.id === props.editItem.id) {
+				if (props.tasks[i].id === props.editItem.id) {
 					break;
 				}
+				// console.log('Inside For Loop !', count);
 				count += 1;
 			}
+			// console.log('Target Element Position', count);
 			props.editTask(props.editItem, title, count);
+			props.updateEditTask('', '');
 		} else {
 			// Checking if the task is already Exist or not in the database / Store !
 			if (
@@ -78,6 +78,7 @@ const mapDispatchToProps = (dispatch) => {
 		addTask: (title) => dispatch(addTask(title)),
 		editTask: (taskId, title, pos) => dispatch(editTask(taskId, title, pos)),
 		clearTask: () => dispatch(clearTask()),
+		updateEditTask: (id, title) => dispatch(updateEditTask(id, title)),
 	};
 };
 
